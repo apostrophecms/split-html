@@ -1,7 +1,7 @@
 split-html
 ==========
 
-<a href="http://apostrophenow.org/"><img src="https://raw.githubusercontent.com/boutell/split-html/master/logos/logo-box-madefor.png" align="right" /></a>
+<a href="http://apostrophenow.org/"><img src="https://raw.githubusercontent.com/punkave/split-html/master/logos/logo-box-madefor.png" align="right" /></a>
 
 Given a string containing an HTML fragment, split that string into one or more HTML fragments wherever the specified selector is found. Returns both the new fragments and the elements that matched the selector, in alternation. **Works on the server side.** Powered by Cheerio.
 
@@ -65,7 +65,7 @@ If `split-html` encounters something it can't figure out, such as terrible marku
 
 Feel free to open issues on [github](http://github.com/punkave/split-html).
 
-<a href="http://punkave.com/"><img src="https://raw.githubusercontent.com/boutell/split-html/master/logos/logo-box-builtby.png" /></a>
+<a href="http://punkave.com/"><img src="https://raw.githubusercontent.com/punkave/split-html/master/logos/logo-box-builtby.png" /></a>
 
 ## Changelog
 
