@@ -24,7 +24,7 @@ This outputs:
 ]
 ```
 
-Note that the `img` itself is returned. The even-numbered elements in the array will always be the elements that matched the selector.
+Note that the `img` itself is returned. The first element in the array is always an HTML fragment, the second is always an element that matched the selector, and so on in alternation.
 
 Any container tags already open when the `img` tag is encountered are automatically closed at the end of the first fragment and re-opened at the start of the next one with the same attributes.
 
