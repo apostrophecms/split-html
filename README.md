@@ -3,7 +3,7 @@ split-html
 
 <a href="http://apostrophenow.org/"><img src="https://raw.githubusercontent.com/punkave/split-html/master/logos/logo-box-madefor.png" align="right" /></a>
 
-Given a string containing an HTML fragment, split that string into one or more HTML fragments wherever the specified selector is found. Returns both the new fragments and the elements that matched the selector, in alternation. **Works on the server side.** Powered by Cheerio.
+Given a string containing an HTML fragment, split that string into two or more HTML fragments wherever the specified selector is found. Returns both the new fragments and the elements that matched the selector, in alternation. **Works on the server side.** Powered by Cheerio.
 
 ```javascript
 var splitHtml = require('split-html');
