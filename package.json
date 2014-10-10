@@ -1,6 +1,6 @@
 {
   "name": "split-html",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Split HTML into two valid fragments wherever a certain selector is matched. Works on the server side.",
   "main": "index.js",
   "scripts": {
