@@ -55,5 +55,21 @@ describe('splitHtml', function(){
     assert(result[1] === '<a href="/button-link"><img src="/test.jpg"></a>');
     assert(result[2] === '<p>Second component.</p><a href="/regular-link">Link text.</a><p>More text in second component.</p>');
   });
+  it('Respects a split at the end of a word', function() {
+    var html = '<p>One</p><p>Two<span data-split-marker></span></p><p>Three</p><p>Four</p>';
+    var result = splitHtml(html, 'span[data-split-marker]');
+    assert(result.length === 3);
+    assert(result[0] === '<p>One</p><p>Two</p>');
+    assert(result[1] === '<span data-split-marker=""></span>');
+    assert(result[2] === '<p></p><p>Three</p><p>Four</p>');
+  });
+  it('Splits properly when parents are multiple levels deep', function() {
+    var html = '<div><section><p>Hello!<span data-split-marker=""></span>Goodbye.</p></section></div>';
+    var result = splitHtml(html, 'span[data-split-marker]');
+    assert(result.length === 3);
+    assert(result[0] === '<div><section><p>Hello!</p></section></div>');
+    assert(result[1] === '<span data-split-marker=""></span>');
+    assert(result[2] === '<div><section><p>Goodbye.</p></section></div>');
+  });
 });
 

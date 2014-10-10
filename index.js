@@ -6,11 +6,24 @@
     cheerio = require('cheerio');
   } else {
     window.splitHtml = splitHtml;
-    // In the browser, use actual jQuery in place of Cheerio
+    // In the browser, use actual jQuery in place of Cheerio.
+    // Create a simulated cheerio object.
     cheerio = {
       load: function(html) {
-        return jQuery(html);
-      }
+        var $wrapper = jQuery('<div data-cheerio-root>');
+        var $el = jQuery(html);
+        $wrapper.append($el);
+        function c(s) {
+          if (s[0] === '<') {
+            return jQuery(s);
+          }
+          return $wrapper.find(s);
+        }
+        c.html = function() {
+          return $wrapper.html();
+        };
+        return c;
+      },
     };
   }
   function splitHtml(html, splitOn, test) {
@@ -27,6 +40,7 @@
     var i;
     var $match;
     var $wrapper;
+    var tag;
     while (true) {
       $ = cheerio.load(html);
       $matches = $(splitOn);
@@ -60,13 +74,24 @@
       var reopen = '';
       $wrapper = cheerio.load('<div></div>')('div').eq(0);
       var $parents = $match.parents();
-      for (i = $parents.length - 1; (i >= 0); i--) {
-        var $parent = $parents.eq(i).clone();
+      for (i = 0; (i < $parents.length); i++) {
+        var $original = $parents.eq(i);
+        if ($original.is('[data-cheerio-root]')) {
+          // Simulated cheerio used in browser has
+          // a wrapper element
+          break;
+        }
+        var $parent = $original.clone();
         $parent.empty();
         $wrapper.empty();
         $wrapper.append($parent);
         var parentMarkup = $wrapper.html();
         var endTagAt = parentMarkup.indexOf('>');
+        tag = tagName($parent);
+        // Cheerio tolerates missing closing tags,
+        // but real jQuery will discard any text
+        // preceding them, so play nice
+        first += '</' + tag + '>';
         reopen = parentMarkup.substr(0, endTagAt + 1) + reopen;
       }
 
@@ -86,7 +111,6 @@
       $match.remove();
       markup = $.html();
       second = reopen + markup.substr(leftAt);
-
       // Let Cheerio close the open tags in the
       // first segment for us. Also mop up the attributes
       // we used to mark elements that matched the selector
@@ -110,6 +134,12 @@
     function token() {
       return Math.floor(Math.random() * 1000000000).toString();
     }
+  }
+
+  function tagName($el) {
+    // Different in DOM and Cheerio. Cheerio
+    // doesn't support prop() either.
+    return $el[0].tagName || $el[0].name;
   }
 })();
 

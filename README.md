@@ -69,6 +69,11 @@ Feel free to open issues on [github](http://github.com/punkave/split-html).
 
 ## Changelog
 
+### CHANGES IN 0.1.1
+
+* Works correctly with actual jQuery (at least in Chrome), in addition to working correctly in node with Cheerio as before.
+* Handles nested parent elements correctly.
+
 ### CHANGES IN 0.1.0
 
 Initial release. With shiny unit tests, of course.
