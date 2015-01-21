@@ -3,13 +3,15 @@ split-html
 
 <a href="http://apostrophenow.org/"><img src="https://raw.githubusercontent.com/punkave/split-html/master/logos/logo-box-madefor.png" align="right" /></a>
 
-Given a string containing an HTML fragment, split that string into two or more HTML fragments wherever the specified selector is found. Returns both the new fragments and the elements that matched the selector, in alternation. **Works on the server side.** Powered by Cheerio.
+Given a string containing an HTML fragment, split that string into two or more **correctly balanced** HTML fragments wherever the specified selector is found. Returns both the new fragments and the elements that matched the selector, in alternation. **Works on the server and in the browser.** Powered by Cheerio on the server side, jQuery in the browser.
 
 ```javascript
 var splitHtml = require('split-html');
-var html = '<h4>First component.</h4>' +
+var html = '<div>' +
+  '<h4>First component.</h4>' +
   '<img src="/test.jpg">' +
-  '<p>Second component.</p>';
+  '<p>Second component.</p>' +
+  '</div>';
 var fragments = splitHtml(html, 'img');
 console.log(fragments);
 ```
@@ -18,19 +20,19 @@ This outputs:
 
 ```javascript
 [
-  '<h4>First component.</h4>',
+  '<div><h4>First component.</h4></div>',
   '<img src="/test.jpg">',
-  '<p>Second component.</p>'
+  '<div><p>Second component.</p></div>'
 ]
 ```
 
 Note that the `img` itself is returned. The first element in the array is always an HTML fragment, the second is always an element that matched the selector, and so on in alternation.
 
-Any container tags already open when the `img` tag is encountered are automatically closed at the end of the first fragment and re-opened at the start of the next one with the same attributes.
+**Any container tags already open when the `img` tag is encountered are automatically closed at the end of the first fragment and re-opened at the start of the next one with the same attributes.**
 
 ## Optional test function
 
-If a jQuery/CSS-style selector isn't specific enough, you can pass a function as the third argument. This function is called with a Cheerio object (just like a jQuery object) representing the matching element. If you want to split around this element, return `true`. Otherwise, return `false`.
+If a jQuery/CSS-style selector isn't specific enough, you can pass a function as the third argument. This function is called with a Cheerio or jQuery object representing the matching element. If you want to split around this element, return `true`. Otherwise, return `false`.
 
 This is useful because Cheerio does not currently support `:has`, and also because in some situations even `:has` might not be specific enough.
 
@@ -68,6 +70,10 @@ Feel free to open issues on [github](http://github.com/punkave/split-html).
 <a href="http://punkave.com/"><img src="https://raw.githubusercontent.com/punkave/split-html/master/logos/logo-box-builtby.png" /></a>
 
 ## Changelog
+
+### CHANGES IN 1.0.0
+
+* Updated documentation and released 1.0.0 stable. No code changes.
 
 ### CHANGES IN 0.1.1
 
