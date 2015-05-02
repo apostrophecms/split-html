@@ -55,9 +55,9 @@ We wanted to import Wordpress blog posts into the [Apostrophe](http://apostrophe
 
 If `split-html` encounters something it can't figure out, such as terrible markup, it will return the original string as the only element in the array.
 
-## Using split-html without cheerio
+## Using split-html in the browser
 
-`split-html` has been coded with the possibility of browser-side use in mind; it should just use jQuery instead of Cheerio and export `splitHtml` as a global variable. However this module has not been properly tested in the browser (it does have tests on the server side).
+`split-html` has been coded to work with either Cheerio or actual jQuery. It will automatically just use jQuery if that is present in the browser. We use this feature in production in [Apostrophe](http://apostrophenow.org)'s rich text editor.
 
 ## About P'unk Avenue and Apostrophe
 
@@ -71,13 +71,17 @@ Feel free to open issues on [github](http://github.com/punkave/split-html).
 
 ## Changelog
 
+### CHANGES IN 1.0.1
+
+* Clarified that this code is mature for browser use as well. No code changes.
+
 ### CHANGES IN 1.0.0
 
 * Updated documentation and released 1.0.0 stable. No code changes.
 
 ### CHANGES IN 0.1.1
 
-* Works correctly with actual jQuery (at least in Chrome), in addition to working correctly in node with Cheerio as before. This required changes to be more pedantic about closing parent tags in the first fragment, and a better simulation of Cheerio's document object.
+* Works correctly with actual jQuery, in addition to working correctly in node with Cheerio as before. This required changes to be more pedantic about closing parent tags in the first fragment, and a better simulation of Cheerio's document object.
 * Handles nested parent elements correctly.
 
 ### CHANGES IN 0.1.0
