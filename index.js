@@ -26,7 +26,7 @@
       },
     };
   }
-  function splitHtml(html, splitOn, test) {
+  function splitHtml(html, splitOn, test, cheerioOpts) {
     if (!test) {
       test = function($el) {
         return true;
@@ -42,7 +42,7 @@
     var $wrapper;
     var tag;
     while (true) {
-      $ = cheerio.load(html);
+      $ = cheerio.load(html, cheerioOpts);
       $matches = $(splitOn);
       $match = null;
       for (i = 0; (i < $matches.length); i++) {
@@ -124,7 +124,7 @@
     // Use Cheerio to strip out any attributes we used to keep
     // track of our work, then generate new HTML. This also
     // closes any tags we opened but did not close.
-    function cleanup(html) {
+    function cleanup(html, cheerioOpts) {
       html = cheerio.load(html);
       html('[' + ignoreAttr + ']').removeAttr(ignoreAttr);
       html = html.html();
