@@ -71,6 +71,10 @@ Feel free to open issues on [github](http://github.com/punkave/split-html).
 
 ## Changelog
 
+### CHANGES IN 1.0.2
+
+* Undeclared variable fixed. No functional changes.
+
 ### CHANGES IN 1.0.1
 
 * Clarified that this code is mature for browser use as well. No code changes.

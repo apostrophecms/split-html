@@ -41,6 +41,7 @@
     var $match;
     var $wrapper;
     var tag;
+    var second;
     while (true) {
       $ = cheerio.load(html);
       $matches = $(splitOn);
