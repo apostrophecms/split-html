@@ -71,6 +71,10 @@ Feel free to open issues on [github](http://github.com/punkave/split-html).
 
 ## Changelog
 
+### CHANGES IN 1.0.3
+
+* Included an explicit LICENSE.md file (no change, still MIT licensed). No changes in functionality.
+
 ### CHANGES IN 1.0.2
 
 * Undeclared variable fixed. No functional changes.

@@ -60,7 +60,7 @@ describe('splitHtml', function(){
     var result = splitHtml(html, 'span[data-split-marker]');
     assert(result.length === 3);
     assert(result[0] === '<p>One</p><p>Two</p>');
-    assert(result[1] === '<span data-split-marker=""></span>');
+    assert(result[1] === '<span data-split-marker></span>');
     assert(result[2] === '<p></p><p>Three</p><p>Four</p>');
   });
   it('Splits properly when parents are multiple levels deep', function() {
@@ -68,7 +68,7 @@ describe('splitHtml', function(){
     var result = splitHtml(html, 'span[data-split-marker]');
     assert(result.length === 3);
     assert(result[0] === '<div><section><p>Hello!</p></section></div>');
-    assert(result[1] === '<span data-split-marker=""></span>');
+    assert(result[1] === '<span data-split-marker></span>');
     assert(result[2] === '<div><section><p>Goodbye.</p></section></div>');
   });
 });

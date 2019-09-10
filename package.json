@@ -1,6 +1,6 @@
 {
   "name": "split-html",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Split HTML into two valid fragments wherever a certain selector is matched. Works on the server side.",
   "main": "index.js",
   "scripts": {
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/punkave/split-html"
+    "url": "https://github.com/apostrophecms/split-html"
   },
   "keywords": [
     "html",
@@ -21,10 +21,11 @@
   "author": "P'unk Avenue LLC",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/punkave/split-html/issues"
+    "url": "https://github.com/apostrophecms/split-html/issues"
   },
-  "homepage": "https://github.com/punkave/split-html",
+  "homepage": "https://github.com/apostrophecms/split-html",
   "dependencies": {
-    "cheerio": "^0.17.0"
+    "cheerio": "^0.22.0",
+    "mocha": "^6.2.0"
   }
 }
