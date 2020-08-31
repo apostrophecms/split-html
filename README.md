@@ -47,6 +47,14 @@ var result = splitHtml(html, 'a', function($el) {
 });
 ```
 
+## Additional options
+
+The following options should be passed as the fourth argument to `splitHtml` in an object.
+
+### `cheerio`
+
+An object of Cheerio v0.x `.load()` options, [as documented here](https://www.npmjs.com/package/cheerio/v/0.22.0). This is used when using split-html on the server when preparing the HTML fragment to parse.
+
 ## Why?
 
 We wanted to import Wordpress blog posts into the [ApostropheCMS](https://apostrophecms.com) CMS. Wordpress uses HTML to embed images and videos, while Apostrophe represents blocks of text and widgets like slideshows as separate objects in an array. `split-html` allows us to neatly slice and dice existing HTML so we can transform it into Apostrophe widgets easily.
@@ -70,6 +78,10 @@ Feel free to open issues on [github](http://github.com/punkave/split-html).
 <a href="http://punkave.com/"><img src="https://raw.githubusercontent.com/punkave/split-html/master/logos/logo-box-builtby.png" /></a>
 
 ## Changelog
+
+### 1.1.0 - 2020-09-09
+
+* Adds the Cheerio configuration option in a fourth options argument.
 
 ### CHANGES IN 1.0.3
 
