@@ -49,7 +49,7 @@ var result = splitHtml(html, 'a', function($el) {
 
 ## Why?
 
-We wanted to import Wordpress blog posts into the [Apostrophe](http://apostrophenow.org) CMS. Wordpress uses HTML to embed images and videos, while Apostrophe represents blocks of text and widgets like slideshows as separate objects in an array. `split-html` allows us to neatly slice and dice existing HTML so we can transform it into Apostrophe widgets easily.
+We wanted to import Wordpress blog posts into the [ApostropheCMS](https://apostrophecms.com) CMS. Wordpress uses HTML to embed images and videos, while Apostrophe represents blocks of text and widgets like slideshows as separate objects in an array. `split-html` allows us to neatly slice and dice existing HTML so we can transform it into Apostrophe widgets easily.
 
 ## What about errors?
 
@@ -57,11 +57,11 @@ If `split-html` encounters something it can't figure out, such as terrible marku
 
 ## Using split-html in the browser
 
-`split-html` has been coded to work with either Cheerio or actual jQuery. It will automatically just use jQuery if that is present in the browser. We use this feature in production in [Apostrophe](http://apostrophenow.org)'s rich text editor.
+`split-html` has been coded to work with either Cheerio or actual jQuery. It will automatically just use jQuery if that is present in the browser. We use this feature in production in [ApostropheCMS](http://apostrophecms.com)'s rich text editor.
 
-## About P'unk Avenue and Apostrophe
+## About P'unk Avenue and ApostropheCMS
 
-`split-html` was created at [P'unk Avenue](http://punkave.com) for use in many projects built with Apostrophe, an open-source content management system built on node.js. If you like `split-html` you should definitely [check out apostrophenow.org](http://apostrophenow.org).
+`split-html` was created at [P'unk Avenue](https://punkave.com) for use in many projects built with Apostrophe, an open-source content management system built on node.js. If you like `split-html` you should definitely [check out apostrophecms.com](https://apostrophecms.com).
 
 ## Support
 
